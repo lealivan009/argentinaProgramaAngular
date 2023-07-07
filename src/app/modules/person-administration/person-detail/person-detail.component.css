@@ -1,0 +1,35 @@
+.persona-container {
+  display: flex;
+  flex-direction: column;
+  background: rgb(229 188 188 / 48%);
+}
+
+.person-input {
+  width: 50%;
+  align-self: center;
+}
+
+.title {
+  display: flex;
+  gap: 20px;
+}
+
+.go-back-button {
+  bottom: 7px;
+}
+
+
+
+
+button {
+  margin-bottom: 20px;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.example-disabled {
+  display: inline-block;
+}

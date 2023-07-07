@@ -1,0 +1,22 @@
+<button mat-fab (click)="newBus()" color="primary" matTooltip="New person" style="margin-bottom: 10px;">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div >
+    <div class="grid-container">
+        <mat-card *ngFor="let bus of dataSource" class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{bus.id}} - Patente: {{bus.patente}}</mat-card-title>
+                <mat-card-subtitle>Cantidad de asientos: {{bus.cantidadAsientos}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-subtitle>Modelo: {{bus.modelo?.nombre}}</mat-card-subtitle>
+                <mat-card-subtitle>Marca: {{bus.modelo?.marca}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions class="card-actions">
+                <button mat-raised-button color="primary" (click)="editarBus(bus)">Editar</button>
+                <button mat-raised-button color="warn" (click)="borrarBus(bus)">Borrar</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

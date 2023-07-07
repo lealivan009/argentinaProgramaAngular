@@ -1,0 +1,26 @@
+<button mat-fab (click)="newPerson()" color="primary" matTooltip="New person" style="margin-bottom: 10px;">
+  <mat-icon>add</mat-icon>
+</button>
+
+<div >
+  <div class="grid-container">
+    <mat-card *ngFor="let pers of personList" class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{pers.apellido}}, {{pers.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{pers.edad}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-raised-button color="primary" (click)="seleccionarPersona(pers)">Editar</button>
+        <button mat-raised-button color="warn" (click)="borrarPersona(pers)">Borrar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<button mat-fab matTooltip="Back" color="accent" aria-label="Example fab with a heart icon" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+
+
+<form [formGroup]="busForm" (ngSubmit)="guardarCambios()">
+
+    <mat-card class="persona-container" style="padding: 20px">
+        <!--- Patente-->
+        <mat-form-field class="person-input">
+            <mat-label>Patente:</mat-label>
+            <input matInput type="text" formControlName="patente">
+            <div
+                *ngIf="busForm.controls['patente'].invalid && (busForm.controls['patente'].dirty || busForm.controls['patente'].touched)">
+                <mat-hint *ngIf="busForm.controls['patente'].errors['required']" style="color: red">
+                    Campo requerido!
+                </mat-hint>
+            </div>
+        </mat-form-field>
+
+
+        <!--- Cantidad de asientos-->
+        <mat-form-field class="person-input">
+            <mat-label>Cantidad de asientos:</mat-label>
+            <input matInput type="number" formControlName="cantidadAsientos">
+            <div
+                *ngIf="busForm.controls['cantidadAsientos'].invalid && (busForm.controls['cantidadAsientos'].dirty || busForm.controls['cantidadAsientos'].touched)">
+                <mat-hint *ngIf="busForm.controls['cantidadAsientos'].errors['required']" style="color: red">
+                    Campo requerido!
+                </mat-hint>
+                <mat-hint *ngIf="busForm.controls['cantidadAsientos'].errors['min']" style="color: red">
+                    No puede ser menor a 0.
+                </mat-hint>
+                <mat-hint *ngIf="busForm.controls['cantidadAsientos'].errors['max']" style="color: red">
+                    No puede ser mayor a 50.
+                </mat-hint>
+            </div>
+        </mat-form-field>
+
+
+        <!---Seleccionar un modelo-->
+        <mat-form-field class="person-input">
+            <mat-label>Modelos:</mat-label>
+            <mat-select formControlName="modelo">
+                <mat-option disabled> -- </mat-option>
+                <mat-option *ngFor="let model of modelList" [value]="model.id">
+                    {{model.nombre}} - {{model.marca}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button type="submit" mat-button [disabled]="busForm.invalid"> Guardar Cambios</button>
+    </mat-card>
+
+</form>
