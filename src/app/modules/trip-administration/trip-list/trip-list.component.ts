@@ -59,7 +59,7 @@ export class TripListComponent implements OnInit{
   //Eliminar viaje
   deleteTrip(trip: Trip) {
     this.tripService.borrar(trip.id).subscribe(res => {
-      this.matSnackBar.open("Se borro correctamente la persona correctamente", "Cerrar");
+      this.matSnackBar.open("Se borro correctamente el viaje", "Cerrar");
       this.loadTrips();
     }, error => {
       console.log(error);

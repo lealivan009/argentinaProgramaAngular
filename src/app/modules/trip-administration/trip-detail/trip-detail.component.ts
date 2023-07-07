@@ -110,12 +110,12 @@ export class TripDetailComponent implements OnInit {
 
     if (this.selectedTrip && this.selectedTrip.id) {
       // LLamar al metodo actualizar
-      console.log("Actualizando una persona");
+      console.log("Actualizando un viaje");
 
       body.id = this.selectedTrip.id;
 
       this.tripService.actualizarViaje(body).subscribe(res => {
-        this.matSnackBar.open("Se guardaron los cambios de la persona", "Cerrar");
+        this.matSnackBar.open("Se guardaron los cambios del viaje", "Cerrar");
         this.router.navigate(['trips', 'list']);
       }, error => {
         console.log(error);
@@ -124,7 +124,7 @@ export class TripDetailComponent implements OnInit {
     }
     else {
       this.tripService.crearViaje(body).subscribe(res => {
-        this.matSnackBar.open("Se creo la persona correctamente", "Cerrar");
+        this.matSnackBar.open("Se creo el viaje correctamente", "Cerrar");
         this.router.navigate(['trips', 'list']);
       }, error => {
         console.log(error);
